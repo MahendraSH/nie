@@ -13,7 +13,7 @@ const data =d3.range(n).map( d=>({
     
     x:200+Math.sin(d*0.4+time)*190+30 ,
     y:d* 60+30,
-    r: 5+Math.sin(time )*d
+    r: Math.abs(5 + Math.sin(time) * d)
    
 }))
 

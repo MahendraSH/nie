@@ -18,7 +18,7 @@ setInterval(() => {
 
         x: 200 + Math.sin(d * 0.5 + time) * 190 + 30,
         y: d * 60 + 30,
-        r: 5 + Math.sin(time) * d,
+        r: Math.abs(5 + Math.sin(time) * d),
 
         // colorName: colorArray[d % colorArray.length]
         colorName   :randomColor(),
