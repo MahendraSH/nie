@@ -1,0 +1,80 @@
+<!-- d3 svg full -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d3 all sol0vet dimagram</title>
+    <style>
+        body{
+            overflow: hidden;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.2/d3.min.js"></script>
+
+
+    <script>
+        
+function renderMask(selection ,id ,inverted){
+
+const mask = d3.select(selection).append('mask').attr('id',id)
+
+mask.append('rect')
+.attr('height',innerHeight)
+.attr('width',innerWidth)
+.attr('fill',inverted? "white" : "black")
+
+
+   mask
+   .selectAll('g')
+    .data(d3.range(d3.symbols.length))
+    .join(
+        (enter)=>{
+            enter.append('g')
+            .attr("transform", (d)=>`translate(${d *170+100},${innerHeight/2})`)
+            .append('path')
+            .attr("d", (d) => d3.symbol(d3.symbols[d],15550)())
+            .attr('fill',inverted? "black" : "white")
+            
+        }
+    )
+}
+const svg=d3.select('body')
+.append('svg')
+.attr('height',innerHeight)
+.attr('width',innerWidth)
+
+
+// svg.call(renderMask , 'mask1' , true)
+// svg.call(renderMask , 'mask2', false)
+renderMask('svg','mask1',false)
+renderMask('svg','mask2',true)
+
+    const n=100;
+d3.select('svg')
+  .append('g')
+  .selectAll('rect')
+  .data(d3.range(n))
+  .join('rect')
+  .attr('y',(d)=> d*15)
+  .attr('height','8')
+  .attr('width',innerWidth)
+  .attr('mask','url("#mask1")')
+  
+d3.select('svg')
+.append('g')
+.selectAll('rect')
+.data(d3.range(n))
+.join('rect')
+.attr('x',(d)=> d*15)
+.attr('height',innerHeight)
+.attr('width','8')
+.attr('mask','url("#mask2")')
+
+    </script>
+</body>
+</html>
