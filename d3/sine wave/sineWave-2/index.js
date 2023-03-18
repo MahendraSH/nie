@@ -32,6 +32,7 @@ svg
 .attr('cy',(d)=>d.x )
 .attr('cx',(d)=> d.y)
 .attr("fill",(d)=>d.colorName)
+.attr('stroke',(d)=>'white')
 time +=0.01;
 },1000/40)
 
