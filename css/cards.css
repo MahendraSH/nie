@@ -1,0 +1,34 @@
+body{
+    background-color: #121;
+    
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #131313;
+    color: white;
+}
+
+p{
+    color: white;
+}
+.card{
+    background-color: #121212;
+    border: solid 0.3rem #abbcee;
+
+}
+.col-lg-3{
+    background-color: #121212;
+    border: solid 0.3rem #303339cb;
+}
+
+h1,h2,h3,h4,h5{
+    color: white;
+}
+
